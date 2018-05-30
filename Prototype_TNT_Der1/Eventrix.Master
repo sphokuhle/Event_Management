@@ -1,0 +1,289 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Eventrix.master.cs" Inherits="Prototype_TNT_Der1.Eventrix" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="no-js">
+<head runat="server">
+
+    <title>Eventrix</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" type="image/png" href="img/eventrix-icon_black.jpg" />
+    
+    <!-- Input form CSS -->
+    <!-- Profile picture CSS -->
+    <link rel="stylesheet" type="text/css" href="css/profilepicture.css"/>
+    <link href="css/Reg_Log_Style.css" rel="stylesheet" />
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Web Fonts -->
+    <link href="css/css[1].css" rel='stylesheet' type='text/css' />
+    <!-- Flaticon CSS -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet" />
+    <!-- font-awesome CSS -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- owl.carousel CSS -->
+    <link href="owl-carousel/owl.carousel.css" rel="stylesheet" />
+    <link href="owl-carousel/owl.theme.css" rel="stylesheet" />
+    <!-- Offcanvas CSS -->
+    <link href="css/hippo-off-canvas.css" rel="stylesheet" />
+    <!-- animate CSS -->
+    <link href="css/animate.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="css/Style1.css" rel="stylesheet" />
+    <!-- Responsive CSS -->
+    <link href="css/responsive.css" rel="stylesheet" />
+
+    <script src="js/vendor/modernizr-2.8.1.min.js"></script>
+    <!-- HTML5 Shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	    <script src="js/vendor/html5shim.js"></script>
+	    <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <div id="st-container" class="st-container">
+        <div class="st-pusher">
+            <div class="st-content">
+                <div class="st-content-inner">
+
+                    <%-- START OF HEADER --%>
+                    <header>
+                        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                            <div class="container">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <!-- offcanvas-trigger-effects -->
+                                    <h1 runat="server" id="logoID" class="logo"></h1>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse navbar-collapse">
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li runat="server" id="homeList" class="active"></li>
+
+                                        <li class="dropdown"><a href="#">Events <b class="caret"></b></a>
+                                            <!-- submenu-wrapper -->
+                                            <div class="submenu-wrapper submenu-wrapper-topbottom">
+                                                <div class="submenu-inner  submenu-inner-topbottom">
+                                                    <ul class="dropdown-menu">
+                                                        <li runat="server" id="createEvent"><a href="CreateEvent.aspx">Create Event</a></li>
+                                                        <li runat="server" id="MyEvents"></li>
+                                                        <li><a href="AllEventList.aspx">All Events</a></li>
+                                                        <%--  <li runat="server" id="LiveEvent"><a href="LiveEventList.aspx">Live Event</a></li>--%>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.submenu-inner -->
+                                            </div>
+                                            <!-- /.submenu-wrapper -->
+                                        </li>
+
+                                        <li runat="server" id="Ticket">
+                                            <!-- submenu-wrapper -->
+                                            <%--<div class="submenu-wrapper submenu-wrapper-topbottom">
+                                                <div class="submenu-inner  submenu-inner-topbottom">
+                                                    <ul class="dropdown-menu">
+                                                        <li runat="server" id="g_ManageGuest"></li>--%>
+                                                        <%--<li>Cancel Ticket</li>--%>
+                                                  <%--  </ul>
+                                                </div>--%>
+                                                <!-- /.submenu-inner -->
+                                        <%--    </div>--%>
+                                            <!-- /.submenu-wrapper -->
+                                        </li>
+
+
+                                        <li class="dropdown" runat="server" id="event_management"><a href="#">Event Management <b class="caret"></b></a>
+                                            <!-- submenu-wrapper -->
+                                            <div class="submenu-wrapper submenu-wrapper-topbottom">
+                                                <div class="submenu-inner  submenu-inner-topbottom">
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="CreateEvent.aspx">Create Event</a></li>
+                                                        <li runat="server" id="ManageEvent"></li>
+                                                        <%--<li><a href="EventList.aspx?ME=Edit">Edit Event</a></li>
+                                                        <li><a href="EventList.aspx?ME=Delete">Delete Event</a></li>
+                                                        <li><a href="EventList.aspx?ME=EventReport">Event Report</a></li>
+                                                        <li><a href="GeneralReport.aspx">General Report</a></li>--%>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.submenu-inner -->
+                                            </div>
+                                            <!-- /.submenu-wrapper -->
+                                        </li>
+
+                                        <li runat="server" id="list_login"><a href="Login.aspx">Sign-In</a></li>
+
+                                        <li runat="server" id="list_reg"><a href="Registration.aspx">Sign-Up</a></li>
+
+                                        <li class="dropdown" runat="server" id="list_account"><a href="#">Account <b class="caret"></b></a>
+                                            <!-- submenu-wrapper -->
+                                            <div class="submenu-wrapper submenu-wrapper-topbottom">
+                                                <div class="submenu-inner  submenu-inner-topbottom">
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="AccountsPage.aspx">Account Information</a></li>
+                                                        <%--                                                        <li runat="server" id="PaymentSetting"><a href="#">Payment Settings</a></li>--%>
+                                                        <li runat="server" id="DeleteAccount"><a href="#">Delete Account</a></li>
+                                                        <li runat="server" id="editGuest"><a href="EditGuest.aspx">Edit Personal Details</a></li>
+                                                        <li><a href="Logout.aspx">Sign-Out</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.submenu-inner -->
+                                            </div>
+                                            <!-- /.submenu-wrapper -->
+                                        </li>
+                                        <li><a href="AboutUs.aspx">About Us</a></li>
+                                        <li><a href="Help.aspx">Help</a></li>
+                                        <li id="profilePic" visible="false" runat="server"></li>
+                                    </ul>
+                                </div>
+                                <!-- /.navbar-collapse -->
+                            </div>
+                            <!-- /.container -->
+                        </nav>
+                    </header>
+                    <%-- END OF HEADER --%>
+
+                    <%-- PAGE CONTENT --%>
+                    <form id="form1" runat="server">
+                        <div>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </form>
+                    <%-- END OF PAGE CONTENT --%>
+
+                    <%-- START OF FOOTER --%>
+                   <footer class="footer-wrapper">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="social-link wow fadeInDown" style="padding-left:100px;">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="copyright wow fadeInDown social-link" style="padding-left:100px;" >
+                                                    <p>Copyright &copy; 2017 eventrix . All Rights Reserved. Designed by TNT-Innovation</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <!-- /.copyright -->
+                                    
+                                </div>
+                                <!-- /.col-md-12 -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.container -->
+                    </footer>
+                    <%-- END OF FOOTER --%>
+                </div>
+                <!-- .st-content-inner -->
+            </div>
+            <!-- .st-content -->
+        </div>
+        <!-- .st-pusher -->
+
+
+        <!-- ======== OFFCANVAS MENU ========= -->
+        <div class="offcanvas-menu offcanvas-effect visible-xs">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="off-canvas-close-btn">&times;</button>
+            <h3 runat="server" id="OffLogo"></h3>
+            <div>
+                <div>
+                    <ul>
+                     
+                        <li><a href="#">Events</a>
+                            <ul>
+                                <li runat="server" id="offMyEvents"></li>
+                                <li><a href="EventList.aspx">All Events</a></li>
+                                <%-- <li runat="server" id="Off_LiveEvent"><a href="LiveEventList.aspx">Live Event</a></li>--%>
+                            </ul>
+                        </li>
+                        <li runat="server" id="Off_EventManagement"><a href="#">Event Management</a>
+                            <ul>
+                                <li><a href="CreateEvent.aspx">Create Event</a></li>
+                                <li runat="server" id="OffManageEvent"></li>
+                            </ul>
+                        </li>
+
+                
+
+                        <li runat="server" id="offLogin"><a href="Login.aspx">Login</a></li>
+                        <li runat="server" id="offReg"><a href="Registration.aspx">Sign Up</a></li>
+
+                        <li runat="server" id="offAcc"><a href="#">Account</a>
+                            <ul>
+                                <li><a href="AccountsPage.aspx">Account Information</a></li>
+                                <li runat="server" id="OffDeleteAcc"><a href="#">Delete Account</a></li>
+                                <li><a href="Logout.aspx">Logout</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="AboutUs.aspx">About Us</a></li>
+                        <li><a href="Help.aspx">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- END OF OFFCANVAS MENU -->
+
+    </div>
+    <!-- /st-container -->
+
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="status-mes"></div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="scripts/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="scripts/js/bootstrap.min.js"></script>
+    <!-- wow.min.js -->
+    <script src="scripts/js/wow.min.js"></script>
+    <!-- owl-carousel -->
+    <script src="scripts/owl-carousel/owl.carousel.min.js"></script>
+    <!-- smoothscroll -->
+    <script src="scripts/js/smoothscroll.js"></script>
+    <!-- Offcanvas Menu -->
+    <script src="scripts/js/hippo-offcanvas.js"></script>
+    <!-- easypiechart -->
+    <script src="scripts/js/jquery.easypiechart.min.js"></script>
+    <!-- Scrolling Nav JavaScript -->
+    <script src="scripts/js/jquery.easing.min.js"></script>
+    <!-- Magnific-popup -->
+    <script src="scripts/js/jquery.magnific-popup.min.js"></script>
+    <!-- Shuffle.min js -->
+    <script src="scripts/js/jquery.shuffle.min.js"></script>
+    <!-- Custom Script -->
+    <script src="scripts/js/scripts.js"></script>
+    <script src="scripts/js/Validation.js"></script>
+</body>
+</html>

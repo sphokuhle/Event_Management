@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="EventrixWCF.EventViewsService" CodeBehind="EventViewsService.svc.cs" %>

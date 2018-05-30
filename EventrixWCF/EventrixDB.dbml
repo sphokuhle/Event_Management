@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EventrixDB" Class="EventrixDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\EventrixDB.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="EventrixDBConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Guest" Member="Guests">
+    <Type Name="Guest">
+      <Column Name="G_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="Guest_EventView" Member="EventViews" ThisKey="G_ID" OtherKey="G_ID" Type="EventView" />
+      <Association Name="Guest_Guest_Ticket" Member="Guest_Tickets" ThisKey="G_ID" OtherKey="G_ID" Type="Guest_Ticket" />
+      <Association Name="Guest_EventRSVP" Member="EventRSVPs" ThisKey="G_ID" OtherKey="G_ID" Type="EventRSVP" />
+      <Association Name="Guest_GuestImage" Member="GuestImages" ThisKey="G_ID" OtherKey="G_ID" Type="GuestImage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DATE" Member="DATEs">
+    <Type Name="DATE">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Very_Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Neutral" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Very_Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="S_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Address" Member="Addresses">
+    <Type Name="Address">
+      <Column Name="AD_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AD_StreetName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="AD_City" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="AD_Province" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="AD_Country" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="AD_Longitude" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="AD_Latitude" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Address_MAIN_EVENT" Member="MAIN_EVENTs" ThisKey="AD_Id" OtherKey="AD_Id" Type="MAIN_EVENT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventHost" Member="EventHosts">
+    <Type Name="EventHost">
+      <Column Name="EH_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="EventHost_EventView" Member="EventViews" ThisKey="EH_ID" OtherKey="EH_ID" Type="EventView" />
+      <Association Name="EventHost_MAIN_EVENT" Member="MAIN_EVENTs" ThisKey="EH_ID" OtherKey="EH_ID" Type="MAIN_EVENT" />
+      <Association Name="EventHost_UserImage" Member="UserImages" ThisKey="EH_ID" OtherKey="EH_ID" Type="UserImage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventView" Member="EventViews">
+    <Type Name="EventView">
+      <Column Name="Promo_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="eventID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="G_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EH_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ViewDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="EventHost_EventView" Member="EventHost" ThisKey="EH_ID" OtherKey="EH_ID" Type="EventHost" IsForeignKey="true" />
+      <Association Name="Guest_EventView" Member="Guest" ThisKey="G_ID" OtherKey="G_ID" Type="Guest" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MAIN_EVENT" Member="MAIN_EVENTs">
+    <Type Name="MAIN_EVENT">
+      <Column Name="E_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EH_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AD_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="E_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="E_Desc" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="E_Type" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="E_EB_Ticket" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="E_RG_Ticket" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="E_VIP_Ticket" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="E_VVIP_Ticket" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="E_StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="E_EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="E_NumProduct" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumViews" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EventStatus" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="MAIN_EVENT_SURVEY" Member="SURVEYs" ThisKey="E_ID" OtherKey="E_ID" Type="SURVEY" />
+      <Association Name="MAIN_EVENT_Ticket_Template" Member="Ticket_Templates" ThisKey="E_ID" OtherKey="eventid" Type="Ticket_Template" />
+      <Association Name="MAIN_EVENT_Staff" Member="Staffs" ThisKey="E_ID" OtherKey="eventid" Type="Staff" />
+      <Association Name="MAIN_EVENT_Product" Member="Products" ThisKey="E_ID" OtherKey="eventid" Type="Product" />
+      <Association Name="MAIN_EVENT_EventRSVP" Member="EventRSVPs" ThisKey="E_ID" OtherKey="E_ID" Type="EventRSVP" />
+      <Association Name="MAIN_EVENT_EventImage" Member="EventImages" ThisKey="E_ID" OtherKey="EventID" Type="EventImage" />
+      <Association Name="Address_MAIN_EVENT" Member="Address" ThisKey="AD_Id" OtherKey="AD_Id" Type="Address" IsForeignKey="true" />
+      <Association Name="EventHost_MAIN_EVENT" Member="EventHost" ThisKey="EH_ID" OtherKey="EH_ID" Type="EventHost" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SURVEY" Member="SURVEYs">
+    <Type Name="SURVEY">
+      <Column Name="S_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="E_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SURVEY_SPEAKER" Member="SPEAKERs" ThisKey="S_Id" OtherKey="S_Id" Type="SPEAKER" />
+      <Association Name="SURVEY_SESSION" Member="SESSIONs" ThisKey="S_Id" OtherKey="S_Id" Type="SESSION" />
+      <Association Name="SURVEY_RECOMMENDATION" Member="RECOMMENDATIONs" ThisKey="S_Id" OtherKey="S_Id" Type="RECOMMENDATION" />
+      <Association Name="SURVEY_VENDOR" Member="VENDORs" ThisKey="S_Id" OtherKey="S_Id" Type="VENDOR" />
+      <Association Name="SURVEY_OVERALL_SATISFACTION" Member="OVERALL_SATISFACTIONs" ThisKey="S_Id" OtherKey="S_Id" Type="OVERALL_SATISFACTION" />
+      <Association Name="SURVEY_LONG_QUESTION" Member="LONG_QUESTIONs" ThisKey="S_Id" OtherKey="S_Id" Type="LONG_QUESTION" />
+      <Association Name="SURVEY_LOCATION" Member="LOCATIONs" ThisKey="S_Id" OtherKey="S_Id" Type="LOCATION" />
+      <Association Name="SURVEY_FUTURE_ATTENDANCE" Member="FUTURE_ATTENDANCEs" ThisKey="S_Id" OtherKey="S_Id" Type="FUTURE_ATTENDANCE" />
+      <Association Name="SURVEY_FOOD" Member="FOODs" ThisKey="S_Id" OtherKey="S_Id" Type="FOOD" />
+      <Association Name="SURVEY_FIRST_TIME" Member="FIRST_TIMEs" ThisKey="S_Id" OtherKey="S_Id" Type="FIRST_TIME" />
+      <Association Name="MAIN_EVENT_SURVEY" Member="MAIN_EVENT" ThisKey="E_ID" OtherKey="E_ID" Type="MAIN_EVENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ticket_Template" Member="Ticket_Templates">
+    <Type Name="Ticket_Template">
+      <Column Name="TicketID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Credit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="RefundPolicy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="eventid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Ticket_Template_Guest_Ticket" Member="Guest_Tickets" ThisKey="TicketID" OtherKey="ticket_temp_id" Type="Guest_Ticket" />
+      <Association Name="MAIN_EVENT_Ticket_Template" Member="MAIN_EVENT" ThisKey="eventid" OtherKey="E_ID" Type="MAIN_EVENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Staff" Member="Staffs">
+    <Type Name="Staff">
+      <Column Name="StaffId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Occupation" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="eventid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WorkStation" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="NumScans" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MAIN_EVENT_Staff" Member="MAIN_EVENT" ThisKey="eventid" OtherKey="E_ID" Type="MAIN_EVENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SPEAKER" Member="SPEAKERs">
+    <Type Name="SPEAKER">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Very_Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Neutral" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Very_Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="S_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SURVEY_SPEAKER" Member="SURVEY" ThisKey="S_Id" OtherKey="S_Id" Type="SURVEY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SESSION" Member="SESSIONs">
+    <Type Name="SESSION">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Very_Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Neutral" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Very_Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="S_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SURVEY_SESSION" Member="SURVEY" ThisKey="S_Id" OtherKey="S_Id" Type="SURVEY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RECOMMENDATION" Member="RECOMMENDATIONs">
+    <Type Name="RECOMMENDATION">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Not_Likely" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Neutral" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Likey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Very_Likey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="S_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SURVEY_RECOMMENDATION" Member="SURVEY" ThisKey="S_Id" OtherKey="S_Id" Type="SURVEY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VENDOR" Member="VENDORs">
+    <Type Name="VENDOR">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Very_Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Neutral" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Very_Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="S_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SURVEY_VENDOR" Member="SURVEY" ThisKey="S_Id" OtherKey="S_Id" Type="SURVEY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserImage" Member="UserImages">
+    <Type Name="UserImage">
+      <Column Name="UserImageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EH_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="EventHost_UserImage" Member="EventHost" ThisKey="EH_ID" OtherKey="EH_ID" Type="EventHost" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="P_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="P_Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="P_Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="P_Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="P_Quantity_Remaining" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="eventid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MAIN_EVENT_Product" Member="MAIN_EVENT" ThisKey="eventid" OtherKey="E_ID" Type="MAIN_EVENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OVERALL_SATISFACTION" Member="OVERALL_SATISFACTIONs">
+    <Type Name="OVERALL_SATISFACTION">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Very_Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Neutral" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Very_Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="S_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SURVEY_OVERALL_SATISFACTION" Member="SURVEY" ThisKey="S_Id" OtherKey="S_Id" Type="SURVEY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LONG_QUESTION" Member="LONG_QUESTIONs">
+    <Type Name="LONG_QUESTION">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LikedMost" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Improvement" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Other_Suggestion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="LikedLeast" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="S_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SURVEY_LONG_QUESTION" Member="SURVEY" ThisKey="S_Id" OtherKey="S_Id" Type="SURVEY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOCATION" Member="LOCATIONs">
+    <Type Name="LOCATION">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Very_Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Neutral" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Very_Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="S_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SURVEY_LOCATION" Member="SURVEY" ThisKey="S_Id" OtherKey="S_Id" Type="SURVEY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Guest_Ticket" Member="Guest_Tickets">
+    <Type Name="Guest_Ticket">
+      <Column Name="ticket_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="G_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ticket_temp_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="numTicket" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Guest_Ticket_Guest_QRCode" Member="Guest_QRCodes" ThisKey="ticket_Id" OtherKey="ticket_Id" Type="Guest_QRCode" />
+      <Association Name="Ticket_Template_Guest_Ticket" Member="Ticket_Template" ThisKey="ticket_temp_id" OtherKey="TicketID" Type="Ticket_Template" IsForeignKey="true" />
+      <Association Name="Guest_Guest_Ticket" Member="Guest" ThisKey="G_ID" OtherKey="G_ID" Type="Guest" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Guest_QRCode" Member="Guest_QRCodes">
+    <Type Name="Guest_QRCode">
+      <Column Name="QR_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ticket_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Checked_In" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EntranceTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Credit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Guest_Ticket_Guest_QRCode" Member="Guest_Ticket" ThisKey="ticket_Id" OtherKey="ticket_Id" Type="Guest_Ticket" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FUTURE_ATTENDANCE" Member="FUTURE_ATTENDANCEs">
+    <Type Name="FUTURE_ATTENDANCE">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Not_Likely" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Neutral" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Likey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Very_Likey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="S_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SURVEY_FUTURE_ATTENDANCE" Member="SURVEY" ThisKey="S_Id" OtherKey="S_Id" Type="SURVEY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FOOD" Member="FOODs">
+    <Type Name="FOOD">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Very_Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dissatisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Neutral" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Very_Satisfied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="S_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SURVEY_FOOD" Member="SURVEY" ThisKey="S_Id" OtherKey="S_Id" Type="SURVEY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FIRST_TIME" Member="FIRST_TIMEs">
+    <Type Name="FIRST_TIME">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Yes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="No" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="S_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SURVEY_FIRST_TIME" Member="SURVEY" ThisKey="S_Id" OtherKey="S_Id" Type="SURVEY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventRSVP" Member="EventRSVPs">
+    <Type Name="EventRSVP">
+      <Column Name="RSVP_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="G_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="E_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MAIN_EVENT_EventRSVP" Member="MAIN_EVENT" ThisKey="E_ID" OtherKey="E_ID" Type="MAIN_EVENT" IsForeignKey="true" />
+      <Association Name="Guest_EventRSVP" Member="Guest" ThisKey="G_ID" OtherKey="G_ID" Type="Guest" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventImage" Member="EventImages">
+    <Type Name="EventImage">
+      <Column Name="EventImageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EventID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StreamData" Type="System.Data.Linq.Binary" DbType="Binary(1)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ContentType" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Data" Type="System.Data.Linq.Binary" DbType="Binary(1)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateUploaded" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Size" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MAIN_EVENT_EventImage" Member="MAIN_EVENT" ThisKey="EventID" OtherKey="E_ID" Type="MAIN_EVENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GuestImage" Member="GuestImages">
+    <Type Name="GuestImage">
+      <Column Name="GuestImageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="G_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StreamData" Type="System.Data.Linq.Binary" DbType="Binary(1)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ContentType" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Data" Type="System.Data.Linq.Binary" DbType="Binary(1)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateUploaded" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Size" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Guest_GuestImage" Member="Guest" ThisKey="G_ID" OtherKey="G_ID" Type="Guest" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

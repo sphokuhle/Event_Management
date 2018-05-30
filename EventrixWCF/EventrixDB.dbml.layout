@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 24.125, 14.625" name="EventrixDB">
+  <DataContextMoniker Name="/EventrixDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e55052ab-254b-47d4-9880-4e9e139a896b" absoluteBounds="0.5, 6.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/EventrixDBDataContext/Guest" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d9b628f-b4a2-4bf1-9022-7e695b9d45a0" absoluteBounds="0.51500000000000012, 7.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="edd05ce4-4231-452e-a996-898802564bad" absoluteBounds="5.375, 8.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EventrixDBDataContext/DATE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e458807-b9b3-4282-b570-55a257fe6a7f" absoluteBounds="5.39, 8.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4c8b84ed-3f3c-4a21-9884-688a2d4b5ad1" absoluteBounds="16.625, 4, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EventrixDBDataContext/Address" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53fe6a27-a187-488e-9af4-ab5572d99448" absoluteBounds="16.64, 4.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7d9bd719-5c70-4e25-a19b-5177fa7e62c2" absoluteBounds="13.625, 7.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/EventrixDBDataContext/EventHost" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5f426418-7022-4bab-87bd-b120294fc8e1" absoluteBounds="13.64, 7.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="25c2bb75-a0e8-4cae-9b40-6600eb801dac" absoluteBounds="13.5, 9.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/EventrixDBDataContext/EventView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cd3c7c57-e8a6-4ea9-8a66-e1871dc064b9" absoluteBounds="13.515, 9.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.5625 : 8.89589680989583); (14.5625 : 9.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/EventHost/EventHost_EventView" />
+      <nodes>
+        <classShapeMoniker Id="7d9bd719-5c70-4e25-a19b-5177fa7e62c2" />
+        <classShapeMoniker Id="25c2bb75-a0e8-4cae-9b40-6600eb801dac" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.5 : 8.8381982421875); (1.5 : 11.1530989583333); (1.97916666666667 : 11.1530989583333 : JumpStart); (2.14583333333333 : 11.1530989583333 : JumpEnd); (13.5 : 11.1530989583333)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EventrixDBDataContext/Guest/Guest_EventView" />
+      <nodes>
+        <classShapeMoniker Id="e55052ab-254b-47d4-9880-4e9e139a896b" />
+        <classShapeMoniker Id="25c2bb75-a0e8-4cae-9b40-6600eb801dac" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0b55715b-0b3e-45d0-86ec-d90837fde131" absoluteBounds="13.75, 3, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/EventrixDBDataContext/MAIN_EVENT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="915f6ae2-d6ad-4ff2-935a-8397546de8ea" absoluteBounds="13.765, 3.46, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(16.625 : 5.07774983723958); (15.75 : 5.07774983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/Address/Address_MAIN_EVENT" />
+      <nodes>
+        <classShapeMoniker Id="4c8b84ed-3f3c-4a21-9884-688a2d4b5ad1" />
+        <classShapeMoniker Id="0b55715b-0b3e-45d0-86ec-d90837fde131" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.84375 : 7.125); (14.84375 : 6.88621256510417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/EventHost/EventHost_MAIN_EVENT" />
+      <nodes>
+        <classShapeMoniker Id="7d9bd719-5c70-4e25-a19b-5177fa7e62c2" />
+        <classShapeMoniker Id="0b55715b-0b3e-45d0-86ec-d90837fde131" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2df8ce8e-7dc8-4809-a7a1-14609debbc30" absoluteBounds="9.5, 0.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/EventrixDBDataContext/SURVEY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="36dc6861-5fa2-4965-b57a-4834b3f48336" absoluteBounds="9.515, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.09375 : 3); (14.09375 : 0.65625); (11.5 : 0.65625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/MAIN_EVENT/MAIN_EVENT_SURVEY" />
+      <nodes>
+        <classShapeMoniker Id="0b55715b-0b3e-45d0-86ec-d90837fde131" />
+        <classShapeMoniker Id="2df8ce8e-7dc8-4809-a7a1-14609debbc30" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="29d158eb-7df9-4f5b-b5de-1082e937335e" absoluteBounds="10.875, 2, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/EventrixDBDataContext/Ticket_Template" />
+      <nestedChildShapes>
+        <elementListCompartment Id="573870b0-bbee-4f5f-9e09-cfca2cb8281d" absoluteBounds="10.89, 2.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13.75 : 3.67390055338542); (12.875 : 3.67390055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/MAIN_EVENT/MAIN_EVENT_Ticket_Template" />
+      <nodes>
+        <classShapeMoniker Id="0b55715b-0b3e-45d0-86ec-d90837fde131" />
+        <classShapeMoniker Id="29d158eb-7df9-4f5b-b5de-1082e937335e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5c79219d-5a81-418e-bdf0-b358d352b720" absoluteBounds="17.125, 9.25, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/EventrixDBDataContext/Staff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a093d394-7b81-4f02-9dc2-55c7690723b2" absoluteBounds="17.14, 9.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(15.7265625 : 6.88621256510417); (15.7265625 : 9.3203125); (17.125 : 9.3203125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/MAIN_EVENT/MAIN_EVENT_Staff" />
+      <nodes>
+        <classShapeMoniker Id="0b55715b-0b3e-45d0-86ec-d90837fde131" />
+        <classShapeMoniker Id="5c79219d-5a81-418e-bdf0-b358d352b720" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9a214fec-b014-4e23-a1d1-4a97b1ca500b" absoluteBounds="4.75, 0.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EventrixDBDataContext/SPEAKER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ab04e0e5-5395-49d7-858f-4782d9311fe9" absoluteBounds="4.765, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.5 : 0.53125); (6.75 : 0.53125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/SURVEY/SURVEY_SPEAKER" />
+      <nodes>
+        <classShapeMoniker Id="2df8ce8e-7dc8-4809-a7a1-14609debbc30" />
+        <classShapeMoniker Id="9a214fec-b014-4e23-a1d1-4a97b1ca500b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="24c61ee0-672c-4df9-a67c-e200a31520ca" absoluteBounds="11.125, 7.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EventrixDBDataContext/SESSION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6a8f4c40-e013-442c-9162-b777f242785b" absoluteBounds="11.14, 7.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.5 : 1.48143563476563); (13.125 : 1.48143563476563); (13.125 : 4.75); (11.25 : 4.75); (11.25 : 6.75); (12.125 : 6.75); (12.125 : 7.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/SURVEY/SURVEY_SESSION" />
+      <nodes>
+        <classShapeMoniker Id="2df8ce8e-7dc8-4809-a7a1-14609debbc30" />
+        <classShapeMoniker Id="24c61ee0-672c-4df9-a67c-e200a31520ca" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fd7c05df-235c-4b6a-8833-a38cce980fd3" absoluteBounds="16.5, 1.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/EventrixDBDataContext/RECOMMENDATION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="481a131a-04b9-488d-83cb-7b111609dbb1" absoluteBounds="16.515, 2.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.5 : 1.20637375651042); (17.5 : 1.20637375651042); (17.5 : 1.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/SURVEY/SURVEY_RECOMMENDATION" />
+      <nodes>
+        <classShapeMoniker Id="2df8ce8e-7dc8-4809-a7a1-14609debbc30" />
+        <classShapeMoniker Id="fd7c05df-235c-4b6a-8833-a38cce980fd3" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ab73bcf4-b256-4963-987f-eacea6e8efda" absoluteBounds="19.125, 3.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EventrixDBDataContext/VENDOR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e33cbe1-340b-4b8e-b6fc-11d0d4c73976" absoluteBounds="19.14, 3.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.5 : 1.61896657389323); (13.0416666666667 : 1.61896657389323 : JumpStart); (13.2083333333333 : 1.61896657389323 : JumpEnd); (14.0104166666667 : 1.61896657389323 : JumpStart); (14.1770833333333 : 1.61896657389323 : JumpEnd); (17.4166666666667 : 1.61896657389323 : JumpStart); (17.5833333333333 : 1.61896657389323 : JumpEnd); (20.125 : 1.61896657389323); (20.125 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/SURVEY/SURVEY_VENDOR" />
+      <nodes>
+        <classShapeMoniker Id="2df8ce8e-7dc8-4809-a7a1-14609debbc30" />
+        <classShapeMoniker Id="ab73bcf4-b256-4963-987f-eacea6e8efda" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="34e06bb8-0be3-4556-8252-a35646db7399" absoluteBounds="21.75, 7.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/EventrixDBDataContext/UserImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="89cf339f-085f-42ee-af81-b322dbb6f729" absoluteBounds="21.765, 8.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(15.625 : 8.01044840494792); (15.6432291666667 : 8.01044840494792 : JumpStart); (15.8098958333333 : 8.01044840494792 : JumpEnd); (16.875 : 8.01044840494792); (16.875 : 6.75); (18.7916666666667 : 6.75 : JumpStart); (18.9583333333333 : 6.75 : JumpEnd); (22.75 : 6.75); (22.75 : 7.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/EventHost/EventHost_UserImage" />
+      <nodes>
+        <classShapeMoniker Id="7d9bd719-5c70-4e25-a19b-5177fa7e62c2" />
+        <classShapeMoniker Id="34e06bb8-0be3-4556-8252-a35646db7399" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2b32b9f9-4786-40e5-9251-2ee06d36d274" absoluteBounds="9, 8.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EventrixDBDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca2fd8ec-23ac-4cab-bde7-b67423d5295f" absoluteBounds="9.015, 9.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(15.703125 : 6.88621256510417); (15.703125 : 9.390625); (14.6458333333333 : 9.390625 : JumpStart); (14.4791666666667 : 9.390625 : JumpEnd); (11 : 9.390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/MAIN_EVENT/MAIN_EVENT_Product" />
+      <nodes>
+        <classShapeMoniker Id="0b55715b-0b3e-45d0-86ec-d90837fde131" />
+        <classShapeMoniker Id="2b32b9f9-4786-40e5-9251-2ee06d36d274" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1e4f03c8-d0ea-4c53-941c-b1e106084fe3" absoluteBounds="8.875, 3.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EventrixDBDataContext/OVERALL_SATISFACTION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="84c0473a-d9a0-4a81-b078-57662dfee4ba" absoluteBounds="8.89, 3.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.15625 : 1.69399251302083); (10.15625 : 3.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/SURVEY/SURVEY_OVERALL_SATISFACTION" />
+      <nodes>
+        <classShapeMoniker Id="2df8ce8e-7dc8-4809-a7a1-14609debbc30" />
+        <classShapeMoniker Id="1e4f03c8-d0ea-4c53-941c-b1e106084fe3" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="bc261bdb-9fab-47c7-9706-8a0dbdd06a1f" absoluteBounds="21.5, 1.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/EventrixDBDataContext/LONG_QUESTION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c64ebf64-b5df-4f2a-9cf0-f183e76cba79" absoluteBounds="21.515, 2.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.5 : 0.931311878255208); (14.0104166666667 : 0.931311878255207 : JumpStart); (14.1770833333333 : 0.931311878255208 : JumpEnd); (22.5 : 0.931311878255208); (22.5 : 1.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/SURVEY/SURVEY_LONG_QUESTION" />
+      <nodes>
+        <classShapeMoniker Id="2df8ce8e-7dc8-4809-a7a1-14609debbc30" />
+        <classShapeMoniker Id="bc261bdb-9fab-47c7-9706-8a0dbdd06a1f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="beeaa84f-c5e5-4cb1-8bfd-d5348aa8660c" absoluteBounds="21.75, 4.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EventrixDBDataContext/LOCATION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="32484e69-65f9-42b0-bd67-d6af9b81791b" absoluteBounds="21.765, 4.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.5 : 1.34390469563802); (17.4166666666667 : 1.34390469563802 : JumpStart); (17.5833333333333 : 1.34390469563802 : JumpEnd); (23.65625 : 1.34390469563802); (23.65625 : 4.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/SURVEY/SURVEY_LOCATION" />
+      <nodes>
+        <classShapeMoniker Id="2df8ce8e-7dc8-4809-a7a1-14609debbc30" />
+        <classShapeMoniker Id="beeaa84f-c5e5-4cb1-8bfd-d5348aa8660c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="929f94d6-54c4-4893-9e3a-2cfdf420f3c4" absoluteBounds="8, 6.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EventrixDBDataContext/Guest_Ticket" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f2ae0f0-bf10-4da7-9cbc-0765c342ee98" absoluteBounds="8.015, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11 : 4.34780110677083); (11 : 6.90625); (10 : 6.90625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/Ticket_Template/Ticket_Template_Guest_Ticket" />
+      <nodes>
+        <classShapeMoniker Id="29d158eb-7df9-4f5b-b5de-1082e937335e" />
+        <classShapeMoniker Id="929f94d6-54c4-4893-9e3a-2cfdf420f3c4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 6.875); (2.875 : 6.5); (2.875 : 6.375); (7.625 : 6.375); (8 : 6.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/Guest/Guest_Guest_Ticket" />
+      <nodes>
+        <classShapeMoniker Id="e55052ab-254b-47d4-9880-4e9e139a896b" />
+        <classShapeMoniker Id="929f94d6-54c4-4893-9e3a-2cfdf420f3c4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="39558fd4-dd98-46b4-bc46-80bd431e4d55" absoluteBounds="3.25, 6.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EventrixDBDataContext/Guest_QRCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c9a1997-8607-4e8c-a9c5-8f4f31341d22" absoluteBounds="3.2649999999999997, 7.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8 : 7.5000025); (5.25 : 7.5000025)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/Guest_Ticket/Guest_Ticket_Guest_QRCode" />
+      <nodes>
+        <classShapeMoniker Id="929f94d6-54c4-4893-9e3a-2cfdf420f3c4" />
+        <classShapeMoniker Id="39558fd4-dd98-46b4-bc46-80bd431e4d55" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3a54ecd9-41de-46e0-a292-4531b9b135e2" absoluteBounds="7.125, 0.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/EventrixDBDataContext/FUTURE_ATTENDANCE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a2db7527-c2d9-43b6-bfcb-27e7b16c3cd3" absoluteBounds="7.14, 1.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.5 : 1.15949625651042); (9.125 : 1.15949625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/SURVEY/SURVEY_FUTURE_ATTENDANCE" />
+      <nodes>
+        <classShapeMoniker Id="2df8ce8e-7dc8-4809-a7a1-14609debbc30" />
+        <classShapeMoniker Id="3a54ecd9-41de-46e0-a292-4531b9b135e2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="38def16b-8552-41f8-8695-726171ca51b4" absoluteBounds="6.75, 3.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EventrixDBDataContext/FOOD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e41e2c0c-e274-4ee1-84d7-d768c576b9df" absoluteBounds="6.765, 3.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.5 : 0.546875); (6.9375 : 0.546875); (6.9375 : 3.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/SURVEY/SURVEY_FOOD" />
+      <nodes>
+        <classShapeMoniker Id="2df8ce8e-7dc8-4809-a7a1-14609debbc30" />
+        <classShapeMoniker Id="38def16b-8552-41f8-8695-726171ca51b4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fbaa2925-94b3-4ea7-8a99-dfcfd993831e" absoluteBounds="4.5, 3.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EventrixDBDataContext/FIRST_TIME" />
+      <nestedChildShapes>
+        <elementListCompartment Id="92e5a208-26e0-4fa5-91e4-14fe14495bef" absoluteBounds="4.515, 3.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.5 : 0.853185628255208); (9.1875 : 0.853185628255208); (9.1875 : 2.71799967447917); (5.5 : 2.71799967447917); (5.5 : 3.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/SURVEY/SURVEY_FIRST_TIME" />
+      <nodes>
+        <classShapeMoniker Id="2df8ce8e-7dc8-4809-a7a1-14609debbc30" />
+        <classShapeMoniker Id="fbaa2925-94b3-4ea7-8a99-dfcfd993831e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b7548a44-c669-46d4-bfad-dee1155be090" absoluteBounds="11.5, 5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EventrixDBDataContext/EventRSVP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f3682e9-b044-45e2-8008-1e242944d823" absoluteBounds="11.515, 5.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13.75 : 5.78929768880208); (13.5 : 5.78929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/MAIN_EVENT/MAIN_EVENT_EventRSVP" />
+      <nodes>
+        <classShapeMoniker Id="0b55715b-0b3e-45d0-86ec-d90837fde131" />
+        <classShapeMoniker Id="b7548a44-c669-46d4-bfad-dee1155be090" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.4687475 : 6.875); (1.4687475 : 6.04649983723958); (10.9166666666667 : 6.04649983723958 : JumpStart); (11.0833333333333 : 6.04649983723958 : JumpEnd); (11.5 : 6.04649983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/Guest/Guest_EventRSVP" />
+      <nodes>
+        <classShapeMoniker Id="e55052ab-254b-47d4-9880-4e9e139a896b" />
+        <classShapeMoniker Id="b7548a44-c669-46d4-bfad-dee1155be090" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="eb91c4c4-fe3c-4453-a7b4-5f01ae16c6c6" absoluteBounds="17.125, 7, 2, 2.5401025390625">
+      <DataClassMoniker Name="/EventrixDBDataContext/EventImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7820c7f5-ec39-426c-a272-c37a3cd56edb" absoluteBounds="17.14, 7.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(15.75 : 6.48399983723958); (18.875 : 6.48399983723958); (18.875 : 7)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EventrixDBDataContext/MAIN_EVENT/MAIN_EVENT_EventImage" />
+      <nodes>
+        <classShapeMoniker Id="0b55715b-0b3e-45d0-86ec-d90837fde131" />
+        <classShapeMoniker Id="eb91c4c4-fe3c-4453-a7b4-5f01ae16c6c6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1189bb9a-d8b8-422d-92b4-cbace67c001e" absoluteBounds="0.625, 11.875, 2, 2.5401025390625">
+      <DataClassMoniker Name="/EventrixDBDataContext/GuestImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a8795f41-a6a1-484c-9565-1e2f022aeab2" absoluteBounds="0.64, 12.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.0625 : 8.8381982421875); (2.0625 : 11.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EventrixDBDataContext/Guest/Guest_GuestImage" />
+      <nodes>
+        <classShapeMoniker Id="e55052ab-254b-47d4-9880-4e9e139a896b" />
+        <classShapeMoniker Id="1189bb9a-d8b8-422d-92b4-cbace67c001e" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
